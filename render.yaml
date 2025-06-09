@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: insurance-telegram-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    plan: free
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: MINDEE_API_KEY
+        sync: false
+      - key: GOOGLE_GEMINI_API_KEY
+        sync: false
+      - key: INSURANCE_PRICE_USD
+        value: 100
+      - key: MINDEE_ENDPOINT
+        value: https://api.mindee.net/v1/products/mindee/driver_license/v1/predict 
